@@ -43,14 +43,14 @@ data class CodePoint(private val value: Int) : Comparable<CodePoint> {
             value == '\''.toInt() -> "\\'"
             value == '\"'.toInt() -> "\\\""
             value == '\\'.toInt() -> "\\\\"
-            this == EOF -> "\\uFFFF"
-            this == BOM || this == NEL -> unicodeEscape
+            this == EOF -> "\\uFFFF" // pad() doesn't work
+            this == BOM || this == NEL -> "\\u${pad(HEX)}"
             isSupplementary -> "\\u${pad(HEX(highSurrogate))}\\u${pad(HEX(lowSurrogate))}"
             else -> toString()
         }
 
-    private val unicodeEscape get() = "\\u${pad(HEX)}"
-    private val isSupplementary get() = Character.isSupplementaryCodePoint(value)
+    /** A CodePoint above 0xFFFF, i.e. it needs two UTF-16 characters */
+    val isSupplementary get() = Character.isSupplementaryCodePoint(value)
     private val lowSurrogate get() = Character.lowSurrogate(value)
     private val highSurrogate get() = Character.highSurrogate(value)
 

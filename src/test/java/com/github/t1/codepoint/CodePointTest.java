@@ -112,6 +112,13 @@ class CodePointTest {
     @Test void escapedGrinningFace() { assertThat(GRINNING_FACE.getEscaped()).isEqualTo("\\uD83D\\uDE00"); }
 
 
+    @Test void supplementaryA() { assertThat(A.isSupplementary()).isFalse(); }
+
+    @Test void supplementaryArabic1() { assertThat(ARABIC_1.isSupplementary()).isFalse(); }
+
+    @Test void supplementaryGrinningFace() { assertThat(GRINNING_FACE.isSupplementary()).isTrue(); }
+
+
     @Test void nameGrinningFace() { assertThat(GRINNING_FACE.getName()).isEqualTo("GRINNING FACE"); }
 
 

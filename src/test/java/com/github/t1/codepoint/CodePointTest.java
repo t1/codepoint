@@ -229,4 +229,7 @@ class CodePointTest {
     @Test void decode65() { assertThat(CodePoint.decode("65")).isEqualTo(A); }
 
     @Test void decode0x43() { assertThat(CodePoint.decode("0x43")).isEqualTo(C); }
+
+
+    @Test void codePointCount() { assertThat(CodePoint.getCodePointCount("ABC😀")).isEqualTo(4); }
 }

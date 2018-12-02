@@ -180,7 +180,7 @@ data class CodePoint(private val value: Int) : Comparable<CodePoint> {
         /** Construct a CodePoint from the Integer value in the String, e.g. `65` -> `A` or `0x43` -> `C` */
         @JvmStatic fun decode(text: String): CodePoint = of(Integer.decode(text)!!)
 
-        private val String.codePointCount get(): Int = this.codePointCount(0, length)
+        @JvmStatic val String.codePointCount get(): Int = this.codePointCount(0, length)
 
         @Suppress("FunctionName") private fun HEX(char: Char) = hex(char).toUpperCase()
         @Suppress("FunctionName") private fun HEX(int: Int) = hex(int).toUpperCase()

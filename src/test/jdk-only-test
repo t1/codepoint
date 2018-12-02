@@ -1,0 +1,7 @@
+#!/usr/bin/env java -cp ../../target/codepoint.jar --source 11
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("test: " + com.github.t1.codepoint.CodePoint.of("A").getInfo());
+    }
+}

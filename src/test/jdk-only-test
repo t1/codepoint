@@ -1,7 +1,10 @@
-#!/usr/bin/env java -cp ../../target/codepoint.jar --source 11
+#!/usr/bin/env java -cp ../../target/codepoint-1.0.0-SNAPSHOT-java.jar --source 11
+
+import com.github.t1.codepoint.CodePoint;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("test: " + com.github.t1.codepoint.CodePoint.of("A").getInfo());
+        System.out.println("A    : " + CodePoint.of("A").getInfo());
+        System.out.println("range: " + CodePoint.of('A').rangeTo(CodePoint.of('C')).contains(CodePoint.of('B')));
     }
 }

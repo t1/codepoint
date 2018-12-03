@@ -35,13 +35,25 @@ There is one special `CodePoint` that is actually not a valid Unicode character:
 `EOF` is defined as a constant for `End Of File` with the value -1,
 which is used, e.g. by a `Reader`, to indicate the end of a file.
 
+# Dependency
+
+```xml
+<dependency>
+    <groupId>com.github.t1</groupId>
+    <artifactId>codepoint</artifactId>
+    <classifier>java</classifier>
+    <version>1.0.0-SNAPSHOT</version>
+</dependency>
+```
 
 # Kotlin
 
 Oh, BTW, the `CodePoint` class is written in [Kotlin](https://kotlinlang.org),
 but you shouldn't have to care when you use Java or any other JVM language.
-The `codepoint.jar` only contains 4 small classes from the Kotlin runtime library,
+The `codepoint.jar` only contains a few small classes from the Kotlin runtime library,
 nicely shaded, so you don't have to worry about any conflicts, even if you do use Kotlin.
 
 Some APIs are more convenient in Kotlin, e.g. to express a range of `CodePoint`s, call `A..Z`
 or convert a `CharRange` like this: `('A'..'C').toCodePointRange()`.
+
+Just make sure, you don't use the `java` classifier, when you bring your own Kotlin runtime.
